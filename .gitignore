@@ -5,6 +5,7 @@
 hugo_stats.json
 /static/
 /content/
+/config.toml
 
 # Executable may be added to repository
 hugo.exe

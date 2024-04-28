@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+ <title>404 page not found.</title>
+ <meta charset='UTF-8'>
+ <meta name='viewport' content='width=device-width, initial-scale=1'>
+ <link rel='icon' href='/favicon.gif' type='image/gif'>
+ <link rel='preconnect' href='https://fonts.googleapis.com'>
+ <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+ <link href='https://fonts.googleapis.com/css2?family=DotGothic16&display=swap' rel='stylesheet'>
+ <link href='{{ (resources.Get "sass/404.sass" | toCSS | minify).RelPermalink }}' rel='stylesheet'>
+ <script type='text/javascript' src='https://unpkg.com/countup.js@2.1.0/dist/countUp.umd.js'></script>
+ <meta http-equiv='refresh' content='5;URL=https://nullnyat.nca10.moe/'>
+</head>
+
+<body>
+ <h1>:(</h1>
+ <p class='RedirectMessage'>このページは存在しないよ。5秒後にホームページに移動するよ。</p>
+ <p class='count'><span id='count'>0</span>%完了</p>
+ <div class='entire'>
+  <img src='/images/404.svg' alt='QR'>
+  <div class='list'>
+   <a href='https://nullnyat.nca10.moe/'>https://nullnyat.nca10.moe/</a>
+   <p>停止コード: 404</p>
+   <p>失敗した内容: PAGE_NOT_FOUND</p>
+  </div>
+ </div>
+
+ <script>
+  const options = {
+   duration: 10,
+  };
+  let demo = new countUp.CountUp('count', 100, options);
+  if (!demo.error) {
+   demo.start();
+  } else {
+   console.error(demo.error);
+  }
+</script>
+</body>
+</html>

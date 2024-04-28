@@ -1,0 +1,48 @@
+.share__button
+ padding: 16px 32px
+ display: flex
+ align-items: center
+ position: relative
+
+ i
+  width: 40px
+  height: 40px
+  background-color: #ebf7ff
+  border-radius: 50%
+  text-align: center
+  line-height: 40px
+
+  &:hover
+   color: #FFF
+   background-color: #89bde4
+
+ ul
+  list-style: none
+  display: flex
+  gap: 10px
+  position: relative
+  right: 104px
+  top: 40px
+
+ &__notification
+  position: absolute
+  top: 120px
+  background-color: #ffffffd3
+  color: #13141C
+  padding: 10px 20px
+  border-radius: 5px
+  z-index: 9999
+  animation: none
+  box-shadow: #13141C
+
+@keyframes slide-in
+ from
+  transform: translateY(-30%)
+ to
+  transform: translateY(0)
+
+@keyframes slide-out
+ from
+  transform: translateY(0)
+ to
+  transform: translateY(-80%)

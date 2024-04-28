@@ -1,0 +1,9 @@
+{{ define "main" }}
+<article>
+ <h1 class='article__single__title'>{{ .Title }}</h1>
+ <div class='article__single__meta'>{{ .Date.Format "2006/01/02" }}</div>
+ <div class='article__single__container'>{{ .Content }}</div>
+ <div class='article__single__share'>{{ partial "share" . }}</div>
+</article>
+
+{{ end }}

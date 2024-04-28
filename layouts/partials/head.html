@@ -1,0 +1,33 @@
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}'>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0' />
+<link rel='stylesheet' href='{{ (resources.Get "sass/main.sass" | toCSS | minify).RelPermalink }}'>
+<title>{{ if not .IsHome }}{{ .Title }} / {{ end }}{{ .Site.Title }}</title>
+<script src='https://kit.fontawesome.com/361a17ba60.js' crossorigin='anonymous'></script>
+
+<!--pwa-->
+<link rel='manifest' href='{{ (resources.Get "manifest.json").RelPermalink }}'>
+<meta name='theme-color' content='#96cce7'>
+
+<!--favicon-->
+<link rel='icon' type='image/png' href='/favicon.png'>
+<meta name='msapplication-TileColor' content='#96cce7'>
+
+<!-- Open Graph Protocol -->
+<meta property='og:title' content='nullnyat.nca10.moe' />
+<meta property='og:description' content='{{ if not .IsHome }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}' />
+<meta property='og:url' content='https://nullnyat.nca10.moe' />
+<meta property='og:image' content='/favicon' />
+<meta property='og:type' content='website' />
+<meta name='twitter:site' content='@nullnyat' />
+<meta name='twitter:creator' content='@nullnyat' />
+<meta name='twitter:card' content='summary' />
+
+<!-- RSS -->
+{{ with .OutputFormats.Get "rss" -}}
+ {{ printf `<link rel='alternate' type='%s' href='%s' title='%s'>` .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}

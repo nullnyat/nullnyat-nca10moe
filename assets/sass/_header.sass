@@ -1,0 +1,36 @@
+.main__header
+ font-family: 'x12y12pxMaruMinyaM', serif
+
+ &__top
+  width: 100%
+  height: 64px
+  padding-block: 16px
+  padding-inline: 32px
+  background-color: #ebf7ff
+
+ &__logo
+  img
+   height: 100%
+
+ &__menu
+  width: 100%
+  list-style: none
+  display: flex
+  flex-direction: row
+  gap: 20px
+  margin: 0
+  position: relative
+  bottom: 24px
+  left: 80px
+
+  li
+  font-size: 18px
+
+  a
+   text-decoration-line: none
+
+@media screen and (max-width: 460px)
+ .main__header__menu
+  gap: 10px
+  position: relative
+  left: 60px

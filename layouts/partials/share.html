@@ -1,0 +1,48 @@
+<section class='share__button'>
+ <p>共有する</p>
+ <ul>
+  <li id='copyLink'>
+  <i class='fa-solid fa-link' onclick='CopyToClipboard("{{ .Title }}", "{{ .Permalink }}")'></i>
+  </li>
+  <li>
+   <a href='http://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}'>
+    <i class='fa-brands fa-x-twitter'></i>
+   </a>
+  </li>
+ </ul>
+ <div id='notification' class='share__button__notification' style="display: none;">
+  <span id='notificationMessage'></span>
+ </div>
+</section>
+
+<script>
+ function CopyToClipboard(title, permalink) {
+  var textToCopy = title + ' ' + permalink;
+  navigator.clipboard.writeText(textToCopy).then(function() {
+   // 成功した場合の処理
+   showNotification("Linkがコピーされました！");
+  });
+ }
+
+ function showNotification(message) {
+   var notification = document.getElementById("notification");
+   var notificationMessage = document.getElementById("notificationMessage");
+
+   notificationMessage.innerText = message;
+
+   notification.style.display = "block";
+   notification.style.animation = "slide-in 0.5s forwards";
+
+   setTimeout(function() {
+     hideNotification();
+   }, 3000);
+ }
+
+ function hideNotification() {
+   var notification = document.getElementById("notification");
+   notification.style.animation = "slide-out 3s forwards";
+   setTimeout(function() {
+     notification.style.display = "none";
+   }, 500);
+ }
+</script>
